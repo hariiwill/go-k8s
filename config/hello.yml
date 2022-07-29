@@ -6,6 +6,8 @@ metadata:
     app: hello
   namespace: dev
 spec:
+  replicas: 3
+  revisionHistoryLimit: 30
   selector:
     matchLabels:
       app: hello
@@ -16,7 +18,7 @@ spec:
     spec:
       containers:
       - name: go-hello-app
-        image: 249784/go-hello-app:1.0.0
+        image: 249784/go-hello-app:slim1.0.0 
         imagePullPolicy: IfNotPresent
         livenessProbe:
           httpGet:
