@@ -18,6 +18,7 @@ func main() {
 	r.HandleFunc("/", handler)
 	r.HandleFunc("/readiness", readinessHandler)
 	r.HandleFunc("/health", healthHandler)
+	r.HandleFunc("/add", addHandler)
 	srv := &http.Server{
 		Handler: r,
 		Addr:    ":8081",
@@ -48,6 +49,15 @@ func handler(w http.ResponseWriter, r *http.Request) {
 func healthHandler(w http.ResponseWriter, r *http.Request) {
 	w.Write([]byte("server is healthy..."))
 	w.WriteHeader(http.StatusOK)
+}
+
+func addHandler(w http.ResponseWriter, r *http.Request) {
+	a := 5
+	b := 6
+
+	sum := a + b
+
+	w.Write([]byte(fmt.Sprintf("%d", sum)))
 }
 
 func readinessHandler(w http.ResponseWriter, r *http.Request) {

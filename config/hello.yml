@@ -8,6 +8,7 @@ metadata:
 spec:
   replicas: 3
   revisionHistoryLimit: 30
+  progressDeadlineSeconds: 300
   selector:
     matchLabels:
       app: hello
