@@ -19,6 +19,7 @@ func main() {
 	r.HandleFunc("/readiness", readinessHandler)
 	r.HandleFunc("/health", healthHandler)
 	r.HandleFunc("/multiply", multiplyHandler)
+	r.HandleFunc("/add", addHandler)
 	srv := &http.Server{
 		Handler: r,
 		Addr:    ":8081",
